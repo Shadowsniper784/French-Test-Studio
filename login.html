@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <div id="login" style="display: none;">
+        <p id="correct"></p>
+        <input type="text" name="name" id="name" placeholder="Enter your name">
+        <input type="password" name="password" id="password" placeholder="Enter your password">
+        <button id="submit">Submit</button>
+    </div>
+    <script>
+        if (localStorage.getItem("name")) {
+            location.href = "/"
+        } else {
+            document.getElementById("login").style.display = "block"
+            document.getElementById("submit").onclick = function() {
+                let name = document.getElementById("name").value
+                let password = document.getElementById("password").value
+                if (name && password) {
+                    let xhr = new XMLHttpRequest()
+                    xhr.open("POST", "/login")
+                    xhr.setRequestHeader("Content-Type", "application/json")
+                    xhr.send(JSON.stringify({
+                        name: name,
+                        password: password
+                    }))
+                    xhr.onload = function() {
+                        if (xhr.status == 200) {
+                            let res = JSON.parse(xhr.responseText)
+                            if (res.status == "success") {
+                                localStorage.setItem("name", name)
+                                location.href = "/"
+                            } else {
+                                document.getElementById("correct").innerHTML = res.message
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>

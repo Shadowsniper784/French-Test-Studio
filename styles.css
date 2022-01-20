@@ -1,0 +1,91 @@
+/* make .base a pale white */
+.base {
+  background-color: #fafafa;
+}
+
+/* make #title central, 100% wide, and a little taller */
+#title {
+  width: 100%;
+  height: 100px;
+  margin: 0 auto;
+}
+
+/* make .options flexbox and a few pixels space */
+.options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
+}
+
+/* if device is a phone, make .options a little smaller and flex-direction to be column */
+@media screen and (max-width: 600px) {
+  .options {
+    flex-direction: column;
+  }
+}
+
+.book {
+  
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  /* make text position center and ignore other elements */
+  
+  color: #5ad1ef;
+  /* place child elements in the middle */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bookimg {
+  width: calc(448px/3);
+  height: calc(556px/3);
+  margin: 0 auto;
+}
+
+.large {
+  width: 200;
+  height: 253;
+}
+
+#title {
+    white-space: pre;
+}
+
+/* make the background a dark grey */
+.book:hover {
+  background-color: #ccc;
+}
+
+
+/* make the background of the page a dark grey */
+body {
+  background-color: #333;
+}
+
+.base {
+  background-color: #333;
+}
+
+
+
+
+.login {
+  display: flex;
+  justify-content: right;
+}
+
+.login a {
+  border: 2px solid cadetblue;
+  border-radius: 25%;
+  background-color: cadetblue;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
