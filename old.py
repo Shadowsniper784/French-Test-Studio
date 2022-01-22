@@ -71,3 +71,107 @@
 #         else:
 #             #send error message with code 401
 #             return jsonify({"error":"incorrect username and password"}), 401
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#New old
+
+# @app.route("/api/tasks", methods=['GET', 'PUT', 'POST'])
+# def get_tasks():
+#     target = request.headers.get("Target")
+#     user = request.headers.get("Authorization")
+#     if request.method == 'GET':
+#         if target in tasks:
+#             return jsonify(tasks[target])
+#         return jsonify([])
+#     elif request.method == 'POST':
+
+
+#         today = date.today()
+#         d = today.strftime("%B %d, %Y")
+#         data = request.get_json()
+#         if target in tasks:
+#             None
+#         else:
+#             tasks[target] = []
+#         tasks[target].append({
+#             "SetBy": user,
+#             "Questions": data["Questions"],
+#             "SetOn": d,
+#             "Book": data["Book"],
+#             "Module": data["Module"],
+#             "Section": data["Section"],
+#             "FrenchToEnglish": data["FrenchToEnglish"],
+#             "DueDate": data["DueDate"],
+#             "Id": uuid.uuid4().hex,
+#             "Status": "Not Started",
+#             "Questions Left": data["Questions"],
+#             "Username": target
+#         })
+#         with open(route, "w") as outfile:
+#             outfile.write(json.dumps(tasks))
+#             outfile.close()
+#         return jsonify({"status": "success"})
+#     elif request.method == "PUT":
+#         data = request.get_json()
+#         for task in tasks[target]:
+#             if task["Id"] == data["Id"]:
+#                 if data["Option"] == "Change Status":
+#                     task["Status"] = data["Status"]
+#                 elif data["Option"] == "Change Questions":
+#                     task["Questions Left"] = data["Questions Left"]
+#                 return jsonify({"status": "success"})
+#         return jsonify({"status": "failure"})
+        
+
+# @app.route("/api/login", methods=["POST"])
+# def login_api():
+#     data = request.get_json()
+#     username = data["username"]
+#     password = data["password"]
+#     if username == "admin" and password == "admin":
+#         return jsonify({"success": True})
+#     elif username == "mum" and password == "mum":
+#         return jsonify({"success": True})
+#     elif username == "joel" and password == "joely":
+#         return jsonify({"success": True})
+#     else:
+#         return jsonify({"error": "Incorrect username and password", "success": False}), 200
